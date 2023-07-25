@@ -9,10 +9,13 @@ export default function useObserver(target, option, auto, bounding, ch) {
     const [entry] = entries;
 
     if (ch) {
-      setIsVisible({
-        top: entry.boundingClientRect.top,
-        height: entry.boundingClientRect.height,
-      });
+      if (ch === "top") {
+        console.log("top");
+        setIsVisible(entry.boundingClientRect.top);
+      } else {
+        console.log("height");
+        setIsVisible(entry.boundingClientRect.height);
+      }
       // console.log(entry.boundingClientRect);
     } else if (bounding) {
       setIsVisible(entry.boundingClientRect.top);

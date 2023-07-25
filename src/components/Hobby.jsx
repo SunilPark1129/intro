@@ -6,6 +6,7 @@ import thresholdOption from "../fn/thresholdOption";
 function ChildComp({ items }) {
   const compRef = useRef(null);
   const option = {
+    rootMargin: "0px",
     threshold: 0.5,
   };
 
@@ -41,8 +42,7 @@ export default function Hobby() {
     childRef = useRef(null);
 
   const isVisible = [
-    useObserver(titleRef, { threshold: 0.5 }, false, true),
-    useObserver(pageRef, { threshold: 0.5 }, false, false, true),
+    useObserver(titleRef, { threshold: thresholdOption(100) }, false, true),
     useObserver(childRef, { threshold: 0 }, true),
     useObserver(pageRef, { threshold: 0 }, true),
   ];
@@ -51,8 +51,8 @@ export default function Hobby() {
     <section className="section hobby" ref={pageRef}>
       <header
         style={{
-          opacity: isVisible[3] ? "1" : "0",
-          transform: isVisible[2]
+          opacity: isVisible[1] ? "1" : "0",
+          transform: isVisible[1]
             ? "translate(-50%, -6rem)"
             : "translate(-50%, 0rem)",
         }}

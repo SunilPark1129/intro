@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Process from "./components/Process";
 function App() {
   const ref = useRef(null);
+
   return (
     <main className="App" ref={ref}>
       <Process mainRef={ref} />

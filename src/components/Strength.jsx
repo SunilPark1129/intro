@@ -88,14 +88,15 @@ export default function Strength() {
     ref2 = useRef(null),
     ref3 = useRef(null);
   const option = {
-    treshold: 0.5,
+    threshold: 0.5,
   };
 
   const isVisible = [
     useObserver(ref1, option, true),
-    useObserver(ref2, { treshold: 0 }, true),
-    useObserver(ref3, { treshold: 0 }, true),
+    useObserver(ref2, { threshold: 0.5 }, true),
+    useObserver(ref3, { threshold: 0.5 }, true),
   ];
+
   return (
     <section className="section strength" ref={ref1}>
       <div className="block-100vh"></div>
@@ -105,7 +106,7 @@ export default function Strength() {
           opacity: isVisible[1] && !isVisible[2] ? "1" : "0",
         }}
       >
-        <h3>I'm good at</h3>
+        <h3>Things I can do</h3>
       </header>
       <div ref={ref3}>
         {datas.map((item) => (

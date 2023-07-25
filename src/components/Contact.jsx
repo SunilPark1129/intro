@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./styles/contact.css";
 import useObserver from "../hooks/useObserver";
 import pic_ready from "../assets/ready.svg";
+import thresholdOption from "../fn/thresholdOption";
 
 export default function Contact() {
   const ref1 = useRef(null),
@@ -9,12 +10,12 @@ export default function Contact() {
     ref3 = useRef(null);
 
   const option = {
-    rootMatin: "300px 0px 300px 0px",
-    treshold: 1,
+    rootMatin: "0px",
+    threshold: 0.5,
   };
 
   const isVisible = [
-    useObserver(ref1, option, false, false, true),
+    useObserver(ref1, { threshold: thresholdOption(100) }, false, false, "top"),
     useObserver(ref2, option, true),
     useObserver(ref3, option, true),
   ];
@@ -23,7 +24,7 @@ export default function Contact() {
     <section className="section contact">
       <header
         style={{
-          opacity: isVisible[0].top < 0 ? "1" : "0",
+          opacity: isVisible[0] < 0 ? "1" : "0",
         }}
       >
         <img
@@ -39,7 +40,9 @@ export default function Contact() {
                 : "translateY(0)",
           }}
         >
-          My name is <span>Sunil Park</span>
+          {isVisible[1] || isVisible[2]
+            ? "My name is Sunil Park"
+            : "Thank You!"}
         </h3>
       </header>
       <div
@@ -82,7 +85,7 @@ export default function Contact() {
       <div className="block-100vh" ref={ref1}></div>
       <div className="block-100vh"></div>
       <div className="block-100vh" ref={ref2}></div>
-      <div className="block-100vh" ref={ref3}></div>
+      {/* <div className="block-100vh" ref={ref3}></div> */}
     </section>
   );
 }
