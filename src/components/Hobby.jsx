@@ -47,6 +47,10 @@ export default function Hobby() {
     useObserver(pageRef, { threshold: 0 }, true),
   ];
 
+  useEffect(() => {
+    console.log(isVisible[1]);
+  }, [isVisible[1]]);
+
   return (
     <section className="section hobby" ref={pageRef}>
       <header
@@ -60,9 +64,7 @@ export default function Hobby() {
         <div
           className="hobby__title-animation"
           style={{
-            transform: `translateX(${
-              isVisible[0] / 10 >= 0 ? 0 : -isVisible[0] / 10
-            }%)`,
+            transform: `translateX(clamp(0%, ${-isVisible[0] / 4}%, 100%)`,
           }}
         ></div>
         <h3>
