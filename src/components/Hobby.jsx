@@ -83,7 +83,6 @@ export default function Hobby() {
         <ChildComp items={["Hiking", "Communicating"]} />
         <ChildComp items={["and Coding :)"]} />
       </div>
-      <div className="block-100vh"></div>
     </section>
   );
 }
