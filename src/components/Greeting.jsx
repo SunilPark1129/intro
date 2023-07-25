@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import useObserver from "../hooks/useObserver";
 import "./styles/greeting.css";
-import thresholdOption from "../fn/thresholdOption";
 
 export default function Greeting() {
   const option = {

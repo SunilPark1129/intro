@@ -40,20 +40,12 @@ export default function Hobby() {
     pageRef = useRef(null),
     childRef = useRef(null);
 
-  const option = {
-    threshold: 0.5,
-  };
-
   const isVisible = [
     useObserver(titleRef, { threshold: 0.5 }, false, true),
     useObserver(pageRef, { threshold: 0.5 }, false, false, true),
     useObserver(childRef, { threshold: 0 }, true),
     useObserver(pageRef, { threshold: 0 }, true),
   ];
-
-  useEffect(() => {
-    console.log(isVisible[0]);
-  }, [isVisible[0]]);
 
   return (
     <section className="section hobby" ref={pageRef}>

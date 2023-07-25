@@ -4,9 +4,10 @@
     flex-direction: column;
     opacity: 0;
     transition: 0.3s opacity;
+    min-width: 14rem;
   }
   .section__text {
-    text-align: center;
+    min-width: 14rem;
     transition: 0.3s opacity;
   }
 }
