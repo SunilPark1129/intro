@@ -1,3 +1,5 @@
+// set intersection observer scroll option
+
 export default function thresholdOption(amount) {
   const threshold = [];
   const steps = amount;
