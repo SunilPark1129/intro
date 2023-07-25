@@ -5,34 +5,37 @@ import useObserver from "../hooks/useObserver";
 import thresholdOption from "../fn/thresholdOption";
 
 export default function School() {
-  const ref1 = useRef(null),
-    ref2 = useRef(null),
-    ref3 = useRef(null),
-    ref4 = useRef(null);
+  const visible0 = useRef(null),
+    visible2 = useRef(null),
+    visible3 = useRef(null),
+    visible4 = useRef(null);
 
   const option = {
-    root: null,
-    rootMargin: "-140px 0px -140px 0px",
-    threshold: thresholdOption(100),
+    threshold: 0.5,
   };
 
   const isVisible = [
-    useObserver(ref1, option, false, true),
-    useObserver(ref2, option, true),
-    useObserver(ref3, option, true),
-    useObserver(ref4, option, true),
+    useObserver(visible0, option, true),
+    useObserver(visible2, option, true),
+    useObserver(visible3, option, true),
+    useObserver(visible4, option, true),
   ];
 
+  useEffect(() => {
+    console.log(isVisible[3]);
+  }, [isVisible[3]]);
+
   return (
-    <section className="section school" ref={ref4}>
+    <section className="section school" ref={visible4}>
       <img
         src={rutgers}
         alt="rutgers logo"
         style={{
-          opacity: isVisible[3] ? "1" : "0",
-          transform: `translate(${`clamp(-120%, ${
-            isVisible[0] / 10
-          }%, -50%)`}, -50%)`,
+          opacity: isVisible[0] || isVisible[1] || isVisible[2] ? "1" : "0",
+          transform:
+            isVisible[1] || isVisible[2]
+              ? "translate(-120%,-50%)"
+              : "translate(-50%,-50%)",
         }}
       />
       <header
@@ -75,9 +78,9 @@ export default function School() {
           </p>
         </div>
       </div>
-      <div className="block-40rem" ref={ref1}></div>
-      <div className="block-40rem" ref={ref2}></div>
-      <div className="block-40rem" ref={ref3}></div>
+      <div className="block-100vh" ref={visible0}></div>
+      <div className="block-100vh" ref={visible2}></div>
+      <div className="block-100vh" ref={visible3}></div>
     </section>
   );
 }

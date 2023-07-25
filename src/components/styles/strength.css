@@ -1,6 +1,6 @@
 .strength header {
-  transition-property: left, opacity;
-  transition-duration: 1s, 1s;
+  transition-property: opacity;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
   width: 10rem;
   text-align: center;

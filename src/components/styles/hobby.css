@@ -5,6 +5,9 @@
   overflow: hidden;
   width: 14rem;
   text-align: center;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 .hobby .section__text {
   display: flex;

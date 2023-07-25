@@ -6,15 +6,13 @@ import thresholdOption from "../fn/thresholdOption";
 function ChildComp({ items }) {
   const compRef = useRef(null);
   const option = {
-    root: null,
-    rootMargin: "80px 0px 80px 0px",
     threshold: 0.5,
   };
+
   const isVisible = useObserver(compRef, option, true);
   return (
     <article>
-      <div className="block-30rem"></div>
-      <div className="block-40rem" ref={compRef}></div>
+      <div className="block-100vh" ref={compRef}></div>
       <div
         className="section__text"
         style={{
@@ -43,31 +41,28 @@ export default function Hobby() {
     childRef = useRef(null);
 
   const option = {
-    root: null,
-    rootMargin: "0px",
-    threshold: thresholdOption(100),
+    threshold: 0.5,
   };
 
   const isVisible = [
-    useObserver(titleRef, option, false, true),
-    useObserver(pageRef, option, false, false, true),
-    useObserver(childRef, option, true),
-    useObserver(pageRef, option, true),
+    useObserver(titleRef, { threshold: 0.5 }, false, true),
+    useObserver(pageRef, { threshold: 0.5 }, false, false, true),
+    useObserver(childRef, { threshold: 0 }, true),
+    useObserver(pageRef, { threshold: 0 }, true),
   ];
 
+  useEffect(() => {
+    console.log(isVisible[0]);
+  }, [isVisible[0]]);
+
   return (
-    <section
-      className="section hobby"
-      ref={pageRef}
-      style={{
-        opacity: isVisible[3] ? "1" : "0",
-      }}
-    >
+    <section className="section hobby" ref={pageRef}>
       <header
         style={{
-          opacity: isVisible[1].top < -200 ? "1" : "0",
-          transform: `translate(-50%, ${isVisible[2] ? "-6rem" : "0rem"})`,
-          transition: ".6s transform ease-in-out",
+          opacity: isVisible[3] ? "1" : "0",
+          transform: isVisible[2]
+            ? "translate(-50%, -6rem)"
+            : "translate(-50%, 0rem)",
         }}
       >
         <div
@@ -83,10 +78,9 @@ export default function Hobby() {
         </h3>
       </header>
 
-      <div className="block-40rem"></div>
-      <div className="block-40rem" ref={titleRef}></div>
-      <div className="block-40rem"></div>
+      <div className="block-100vh" ref={titleRef}></div>
       <div ref={childRef}>
+        <div className="block-100vh"></div>
         <ChildComp items={["Desinging", "Painting"]} />
         <ChildComp items={["Editing videos", "Editing photos"]} />
         <ChildComp items={["Playing ping-pong", "Playing teenis"]} />
@@ -95,7 +89,7 @@ export default function Hobby() {
         <ChildComp items={["Hiking", "Communicating"]} />
         <ChildComp items={["and Coding :)"]} />
       </div>
-      <div className="block-40rem"></div>
+      <div className="block-100vh"></div>
     </section>
   );
 }

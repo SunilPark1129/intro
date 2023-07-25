@@ -45,8 +45,8 @@ export default function Contact() {
       <div
         className="section__text"
         style={{
-          opacity: isVisible[2] ? "1" : "0",
-          pointerEvents: isVisible[2] ? "auto" : "none",
+          opacity: isVisible[1] ? "1" : "0",
+          pointerEvents: isVisible[1] ? "auto" : "none",
         }}
       >
         <div>
@@ -79,11 +79,10 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="block-40rem" ref={ref1}></div>
-      <div className="block-40rem"></div>
-      <div className="block-30rem"></div>
-      <div className="block-40rem" ref={ref2}></div>
-      <div className="block-40rem" ref={ref3}></div>
+      <div className="block-100vh" ref={ref1}></div>
+      <div className="block-100vh"></div>
+      <div className="block-100vh" ref={ref2}></div>
+      <div className="block-100vh" ref={ref3}></div>
     </section>
   );
 }

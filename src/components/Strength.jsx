@@ -58,16 +58,13 @@ function ChildComp({ item }) {
   const { title, description, src } = item;
   const ref = useRef(null);
   const option = {
-    root: null,
-    rootMargin: "100px 0px 100px 0px",
     threshold: 0.5,
   };
 
   const isVisible = useObserver(ref, option, true);
   return (
     <article>
-      <div className="block-30rem"></div>
-      <div className="block-60rem" ref={ref}></div>
+      <div className="block-100vh" ref={ref}></div>
       <div
         className="section__text"
         style={{
@@ -91,24 +88,21 @@ export default function Strength() {
     ref2 = useRef(null),
     ref3 = useRef(null);
   const option = {
-    root: null,
-    rootMargin: "-140px 0px -140px 0px",
-    treshold: 1,
+    treshold: 0.5,
   };
 
   const isVisible = [
     useObserver(ref1, option, true),
-    useObserver(ref2, option, true),
-    useObserver(ref3, option, true),
+    useObserver(ref2, { treshold: 0 }, true),
+    useObserver(ref3, { treshold: 0 }, true),
   ];
   return (
     <section className="section strength" ref={ref1}>
-      <div className="block-50rem"></div>
-      <div className="block-40rem" ref={ref2}></div>
-      <div className="block-50rem"></div>
+      <div className="block-100vh"></div>
+      <div className="block-100vh" ref={ref2}></div>
       <header
         style={{
-          opacity: isVisible[1] ? "1" : "0",
+          opacity: isVisible[1] && !isVisible[2] ? "1" : "0",
         }}
       >
         <h3>I'm good at</h3>
