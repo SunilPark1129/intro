@@ -12,7 +12,7 @@ export default function School() {
 
   const option = {
     root: null,
-    rootMargin: "0px",
+    rootMargin: "-140px 0px -140px 0px",
     threshold: thresholdOption(100),
   };
 
@@ -75,10 +75,9 @@ export default function School() {
           </p>
         </div>
       </div>
-      <div className="block-80vh" ref={ref1}></div>
-      <div className="block-80vh"></div>
-      <div className="block-80vh" ref={ref2}></div>
-      <div className="block-80vh" ref={ref3}></div>
+      <div className="block-40rem" ref={ref1}></div>
+      <div className="block-40rem" ref={ref2}></div>
+      <div className="block-40rem" ref={ref3}></div>
     </section>
   );
 }

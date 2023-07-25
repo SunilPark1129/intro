@@ -29,11 +29,14 @@ export default function Contact() {
         <img
           src={pic_ready}
           alt="ready"
-          style={{ opacity: isVisible[1] ? "0" : "1" }}
+          style={{ opacity: isVisible[1] || isVisible[2] ? "0" : "1" }}
         />
         <h3
           style={{
-            transform: isVisible[1] ? "translateY(-10rem)" : "translateY(0)",
+            transform:
+              isVisible[1] || isVisible[2]
+                ? "translateY(-10rem)"
+                : "translateY(0)",
           }}
         >
           My name is <span>Sunil Park</span>
@@ -76,11 +79,11 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="block-80vh" ref={ref1}></div>
-      <div className="block-80vh"></div>
+      <div className="block-40rem" ref={ref1}></div>
+      <div className="block-40rem"></div>
       <div className="block-30rem"></div>
-      <div className="block-80vh" ref={ref2}></div>
-      <div className="block-80vh" ref={ref3}></div>
+      <div className="block-40rem" ref={ref2}></div>
+      <div className="block-40rem" ref={ref3}></div>
     </section>
   );
 }

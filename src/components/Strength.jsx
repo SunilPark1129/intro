@@ -59,7 +59,7 @@ function ChildComp({ item }) {
   const ref = useRef(null);
   const option = {
     root: null,
-    rootMargin: "200px 0px 200px 0px",
+    rootMargin: "100px 0px 100px 0px",
     threshold: 0.5,
   };
 
@@ -67,8 +67,7 @@ function ChildComp({ item }) {
   return (
     <article>
       <div className="block-30rem"></div>
-      <div className="block-80vh" ref={ref}></div>
-      <div className="block-30rem"></div>
+      <div className="block-60rem" ref={ref}></div>
       <div
         className="section__text"
         style={{
@@ -93,7 +92,7 @@ export default function Strength() {
     ref3 = useRef(null);
   const option = {
     root: null,
-    rootMargin: "0px",
+    rootMargin: "-140px 0px -140px 0px",
     treshold: 1,
   };
 
@@ -104,27 +103,21 @@ export default function Strength() {
   ];
   return (
     <section className="section strength" ref={ref1}>
-      <div className="block-80vh"></div>
-      <div className="block-80vh" ref={ref2}></div>
-      <div className="block-80vh"></div>
+      <div className="block-50rem"></div>
+      <div className="block-40rem" ref={ref2}></div>
+      <div className="block-50rem"></div>
       <header
         style={{
-          left: isVisible[1]
-            ? "50%"
-            : isVisible[1] || isVisible[2]
-            ? "-20%"
-            : "120%",
           opacity: isVisible[1] ? "1" : "0",
         }}
       >
-        <h3>I'm good at . . .</h3>
+        <h3>I'm good at</h3>
       </header>
       <div ref={ref3}>
         {datas.map((item) => (
           <ChildComp item={item} key={item.title} />
         ))}
       </div>
-      <div className="block-80vh"></div>
     </section>
   );
 }

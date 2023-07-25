@@ -6,7 +6,7 @@ import thresholdOption from "../fn/thresholdOption";
 export default function Greeting() {
   const option = {
     root: null,
-    rootMargin: "-100px 0px -100px 0px",
+    rootMargin: "-140px 0px -140px 0px",
     threshold: thresholdOption(100),
   };
   const ref1 = useRef(null),
@@ -45,10 +45,10 @@ export default function Greeting() {
           Please, let me <span>introduce</span> myself.
         </p>
       </div>
-      <div className="block-80vh" ref={ref1}></div>
-      <div className="block-80vh"></div>
-      <div className="block-80vh" ref={ref2}></div>
-      <div className="block-80vh"></div>
+      <div className="block-40rem" ref={ref1}></div>
+      <div className="block-40rem"></div>
+      <div className="block-40rem" ref={ref2}></div>
+      <div className="block-40rem"></div>
     </section>
   );
 }

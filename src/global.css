@@ -25,8 +25,17 @@
 .section .block-80vh {
   height: 80vh;
 }
+.section .block-20rem {
+  height: 20rem;
+}
 .section .block-30rem {
   height: 30rem;
+}
+.section .block-40rem {
+  height: 40rem;
+}
+.section .block-50rem {
+  height: 50rem;
 }
 .section .block-60rem {
   height: 60rem;
