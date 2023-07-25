@@ -22,8 +22,8 @@
   opacity: 0;
   pointer-events: none;
 }
-.section .block-100vh {
-  height: 100vh;
+.section .block-80vh {
+  height: 80vh;
 }
 .section .block-30rem {
   height: 30rem;

@@ -14,7 +14,7 @@ function ChildComp({ items }) {
   return (
     <article>
       <div className="block-30rem"></div>
-      <div className="block-100vh" ref={compRef}></div>
+      <div className="block-80vh" ref={compRef}></div>
       <div
         className="section__text"
         style={{
@@ -83,9 +83,9 @@ export default function Hobby() {
         </h3>
       </header>
 
-      <div className="block-100vh"></div>
-      <div className="block-100vh" ref={titleRef}></div>
-      <div className="block-100vh"></div>
+      <div className="block-80vh"></div>
+      <div className="block-80vh" ref={titleRef}></div>
+      <div className="block-80vh"></div>
       <div ref={childRef}>
         <ChildComp items={["Desinging", "Painting"]} />
         <ChildComp items={["Editing videos", "Editing photos"]} />
@@ -95,7 +95,7 @@ export default function Hobby() {
         <ChildComp items={["Hiking", "Communicating"]} />
         <ChildComp items={["and Coding :)"]} />
       </div>
-      <div className="block-100vh"></div>
+      <div className="block-80vh"></div>
     </section>
   );
 }

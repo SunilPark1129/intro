@@ -9,6 +9,7 @@ export default function Contact() {
     ref3 = useRef(null);
 
   const option = {
+    rootMatin: "300px 0px 300px 0px",
     treshold: 1,
   };
 
@@ -35,7 +36,7 @@ export default function Contact() {
             transform: isVisible[1] ? "translateY(-10rem)" : "translateY(0)",
           }}
         >
-          My name is Sunil Park
+          My name is <span>Sunil Park</span>
         </h3>
       </header>
       <div
@@ -75,10 +76,11 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="block-100vh" ref={ref1}></div>
-      <div className="block-100vh"></div>
-      <div className="block-60rem" ref={ref2}></div>
-      <div className="block-100vh" ref={ref3}></div>
+      <div className="block-80vh" ref={ref1}></div>
+      <div className="block-80vh"></div>
+      <div className="block-30rem"></div>
+      <div className="block-80vh" ref={ref2}></div>
+      <div className="block-80vh" ref={ref3}></div>
     </section>
   );
 }

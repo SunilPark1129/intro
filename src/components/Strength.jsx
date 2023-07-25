@@ -67,7 +67,7 @@ function ChildComp({ item }) {
   return (
     <article>
       <div className="block-30rem"></div>
-      <div className="block-100vh" ref={ref}></div>
+      <div className="block-80vh" ref={ref}></div>
       <div className="block-30rem"></div>
       <div
         className="section__text"
@@ -104,9 +104,9 @@ export default function Strength() {
   ];
   return (
     <section className="section strength" ref={ref1}>
-      <div className="block-100vh"></div>
-      <div className="block-100vh" ref={ref2}></div>
-      <div className="block-100vh"></div>
+      <div className="block-80vh"></div>
+      <div className="block-80vh" ref={ref2}></div>
+      <div className="block-80vh"></div>
       <header
         style={{
           left: isVisible[1]
@@ -124,7 +124,7 @@ export default function Strength() {
           <ChildComp item={item} key={item.title} />
         ))}
       </div>
-      <div className="block-100vh"></div>
+      <div className="block-80vh"></div>
     </section>
   );
 }

@@ -75,10 +75,10 @@ export default function School() {
           </p>
         </div>
       </div>
-      <div className="block-100vh" ref={ref1}></div>
-      <div className="block-100vh"></div>
-      <div className="block-100vh" ref={ref2}></div>
-      <div className="block-100vh" ref={ref3}></div>
+      <div className="block-80vh" ref={ref1}></div>
+      <div className="block-80vh"></div>
+      <div className="block-80vh" ref={ref2}></div>
+      <div className="block-80vh" ref={ref3}></div>
     </section>
   );
 }
