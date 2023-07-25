@@ -5,6 +5,9 @@
   transition: 0.3s opacity;
   min-width: 14rem;
 }
+.greeting header h1 span {
+  white-space: nowrap;
+}
 .greeting .section__text {
   min-width: 14rem;
   transition: 0.3s opacity;

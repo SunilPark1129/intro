@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useObserver from "../hooks/useObserver";
 import "./styles/process.css";
 
