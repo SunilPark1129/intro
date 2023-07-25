@@ -1,0 +1,10 @@
+.greeting header {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.greeting .section__text {
+  text-align: center;
+  transition: 0.3s opacity;
+}/*# sourceMappingURL=greeting.css.map */

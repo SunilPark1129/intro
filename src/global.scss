@@ -1,0 +1,46 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-width: 300px;
+  max-width: 100rem;
+  overflow: hidden;
+}
+
+.section {
+  position: relative;
+
+  span {
+    color: rgb(72, 61, 218);
+    font-weight: bold;
+  }
+
+  header,
+  &__text {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .block-100vh {
+    height: 100vh;
+  }
+  .block-30rem {
+    height: 30rem;
+  }
+  .block-60rem {
+    height: 60rem;
+  }
+  .block-90rem {
+    height: 90rem;
+  }
+  .block-120rem {
+    height: 120rem;
+  }
+  .block-150rem {
+    height: 150rem;
+  }
+}

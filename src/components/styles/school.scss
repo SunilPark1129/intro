@@ -1,0 +1,47 @@
+.school {
+  z-index: 99;
+  img {
+    width: 12em;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-property: opacity, transform;
+    transition-duration: 0.6s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  header {
+    transition: opacity 0.6s;
+    h3 {
+      width: 14em;
+      transition: transform 0.3s;
+    }
+  }
+
+  .section__text {
+    transition: opacity 0.6s;
+    > div {
+      width: 14em;
+      transition: transform 0.3s;
+      display: flex;
+      gap: 1em;
+      p {
+        display: flex;
+        flex-direction: column;
+        width: 6em;
+        text-align: center;
+        padding: 0.5em 0.5em;
+        box-shadow: 0px 3px 3px -1px rgba(29, 29, 29, 0.568);
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .school {
+    font-size: 0.6rem;
+  }
+}

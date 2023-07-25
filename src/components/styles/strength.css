@@ -1,0 +1,39 @@
+.strength header {
+  transition-property: left, opacity;
+  transition-duration: 1s, 1s;
+  transition-timing-function: ease-in-out;
+  width: 10rem;
+  text-align: center;
+}
+.strength .section__text {
+  display: flex;
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 1rem;
+}
+.strength .section__text > div {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+  gap: 1rem;
+}
+.strength .section__text > div p {
+  width: 14em;
+}
+.strength .section__text img {
+  width: 15em;
+  height: 15em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 550px) {
+  .strength .section__text {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=strength.css.map */
