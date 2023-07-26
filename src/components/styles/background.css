@@ -1,0 +1,95 @@
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  font-size: 1rem;
+}
+.background img {
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  opacity: 0.5;
+  filter: blur(1px);
+}
+.background img:nth-child(1) {
+  left: 2em;
+  top: 5%;
+}
+.background img:nth-child(2) {
+  right: 2em;
+  top: 10%;
+}
+.background img:nth-child(3) {
+  left: 2em;
+  top: 15%;
+}
+.background img:nth-child(4) {
+  right: 2em;
+  top: 20%;
+}
+.background img:nth-child(5) {
+  left: 2em;
+  top: 25%;
+}
+.background img:nth-child(6) {
+  right: 2em;
+  top: 30%;
+}
+.background img:nth-child(7) {
+  left: 2em;
+  top: 35%;
+}
+.background img:nth-child(8) {
+  right: 2em;
+  top: 40%;
+}
+.background img:nth-child(9) {
+  left: 2em;
+  top: 45%;
+}
+.background img:nth-child(10) {
+  right: 2em;
+  top: 50%;
+}
+.background img:nth-child(11) {
+  left: 2em;
+  top: 55%;
+}
+.background img:nth-child(12) {
+  right: 2em;
+  top: 60%;
+}
+.background img:nth-child(13) {
+  left: 2em;
+  top: 65%;
+}
+.background img:nth-child(14) {
+  right: 2em;
+  top: 70%;
+}
+.background img:nth-child(15) {
+  left: 2em;
+  top: 75%;
+}
+.background img:nth-child(16) {
+  right: 2em;
+  top: 80%;
+}
+.background img:nth-child(17) {
+  left: 2em;
+  top: 85%;
+}
+.background img:nth-child(18) {
+  right: 2em;
+  top: 90%;
+}
+.background img:nth-child(19) {
+  left: 2em;
+  top: 95%;
+}
+@media (max-width: 600px) {
+  .background {
+    font-size: 0.8rem;
+  }
+}/*# sourceMappingURL=background.css.map */
