@@ -3,22 +3,21 @@ import useObserver from "../hooks/useObserver";
 import "./styles/greeting.css";
 
 export default function Greeting() {
-  const option = {
-    threshold: 0.5,
-  };
   const ref1 = useRef(null),
     ref2 = useRef(null);
-  const isVisible = [
-    useObserver(ref1, option, true),
-    useObserver(ref2, option, true),
+
+  // set if current scroll position reached the targeted position
+  const [isVisibleOne, isVisibleTwo] = [
+    useObserver(ref1, { threshold: 0.5 }, true),
+    useObserver(ref2, { threshold: 0.5 }, true),
   ];
 
   return (
     <section className="section greeting">
       <header
         style={{
-          opacity: isVisible[0] ? "1" : "0",
-          pointerEvents: isVisible[0] ? "auto" : "none",
+          opacity: isVisibleOne ? "1" : "0",
+          pointerEvents: isVisibleOne ? "auto" : "none",
         }}
       >
         <h1>
@@ -31,8 +30,8 @@ export default function Greeting() {
       <div
         className="section__text"
         style={{
-          opacity: isVisible[1] ? "1" : "0",
-          pointerEvents: isVisible[1] ? "auto" : "none",
+          opacity: isVisibleTwo ? "1" : "0",
+          pointerEvents: isVisibleTwo ? "auto" : "none",
         }}
       >
         <p>

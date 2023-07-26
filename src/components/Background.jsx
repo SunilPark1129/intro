@@ -20,6 +20,15 @@ import tank from "../assets/bg/tank.svg";
 import train from "../assets/bg/train.svg";
 import ufo from "../assets/bg/ufo.svg";
 
+/* 
+svg images for background page
+
+purpose:
+I have noticed that it is difficult to distinguish whether the 
+user is currently scrolling on mobile devices, so I have added 
+a scroll detection UI to address this issue.
+*/
+
 export default function Background() {
   return (
     <div className="background">

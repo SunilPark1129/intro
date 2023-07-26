@@ -26,41 +26,8 @@
     pointer-events: none;
   }
 
+  // blocks for each of elements to calculate targeted scroll position
   .block-100vh {
     height: 100vh;
-  }
-  .block-10rem {
-    height: 30rem;
-    outline: 1px solid black;
-  }
-
-  .block-20rem {
-    height: 20rem;
-    outline: 1px solid black;
-  }
-  .block-30rem {
-    height: 30rem;
-    outline: 1px solid black;
-  }
-  .block-40rem {
-    height: 40rem;
-    outline: 1px solid black;
-  }
-  .block-50rem {
-    height: 50rem;
-    outline: 1px solid black;
-  }
-  .block-60rem {
-    height: 60rem;
-    outline: 1px solid black;
-  }
-  .block-90rem {
-    height: 90rem;
-  }
-  .block-120rem {
-    height: 120rem;
-  }
-  .block-150rem {
-    height: 150rem;
   }
 }

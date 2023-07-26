@@ -10,6 +10,7 @@ import pic_communication from "../assets/communication.svg";
 
 import useObserver from "../hooks/useObserver";
 
+// Strength child components property
 const datas = [
   {
     title: "Problem Solving",
@@ -54,14 +55,13 @@ const datas = [
   },
 ];
 
+// Child components
+// Each of them has ref and observer
 function ChildComp({ item }) {
   const { title, description, src } = item;
   const ref = useRef(null);
-  const option = {
-    threshold: 0.5,
-  };
+  const isVisible = useObserver(ref, { threshold: 0.5 }, true);
 
-  const isVisible = useObserver(ref, option, true);
   return (
     <article>
       <div className="block-100vh" ref={ref}></div>
@@ -85,30 +85,26 @@ function ChildComp({ item }) {
 
 export default function Strength() {
   const ref1 = useRef(null),
-    ref2 = useRef(null),
-    ref3 = useRef(null);
-  const option = {
-    threshold: 0.5,
-  };
+    ref2 = useRef(null);
 
-  const isVisible = [
-    useObserver(ref1, option, true),
+  // set if current scroll position reached the targeted position
+  const [isVisibleOne, isVisibleTwo] = [
+    useObserver(ref1, { threshold: 0.5 }, true),
     useObserver(ref2, { threshold: 0.5 }, true),
-    useObserver(ref3, { threshold: 0.5 }, true),
   ];
 
   return (
-    <section className="section strength" ref={ref1}>
+    <section className="section strength">
       <div className="block-100vh"></div>
-      <div className="block-100vh" ref={ref2}></div>
+      <div className="block-100vh" ref={ref1}></div>
       <header
         style={{
-          opacity: isVisible[1] && !isVisible[2] ? "1" : "0",
+          opacity: isVisibleOne && !isVisibleTwo ? "1" : "0",
         }}
       >
         <h3>Things I can do</h3>
       </header>
-      <div ref={ref3}>
+      <div ref={ref2}>
         {datas.map((item) => (
           <ChildComp item={item} key={item.title} />
         ))}

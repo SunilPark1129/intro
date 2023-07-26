@@ -1,55 +1,45 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./styles/school.css";
 import rutgers from "../assets/rutgers.png";
 import useObserver from "../hooks/useObserver";
-import thresholdOption from "../fn/thresholdOption";
 
 export default function School() {
-  const visible0 = useRef(null),
-    visible2 = useRef(null),
-    visible3 = useRef(null),
-    visible4 = useRef(null);
+  const ref1 = useRef(null),
+    ref2 = useRef(null),
+    ref3 = useRef(null);
 
-  const option = {
-    threshold: 0.5,
-  };
-
-  const isVisible = [
-    useObserver(visible0, option, true),
-    useObserver(visible2, option, true),
-    useObserver(visible3, option, true),
-    useObserver(visible4, option, true),
+  // set if current scroll position reached the targeted position
+  const [isVisibleOne, isVisibleTwo, isVisibleThree] = [
+    useObserver(ref1, { threshold: 0.5 }, true),
+    useObserver(ref2, { threshold: 0.5 }, true),
+    useObserver(ref3, { threshold: 0.5 }, true),
   ];
 
-  useEffect(() => {
-    console.log(isVisible[3]);
-  }, [isVisible[3]]);
-
   return (
-    <section className="section school" ref={visible4}>
+    <section className="section school">
       <img
         src={rutgers}
         alt="rutgers logo"
         style={{
-          opacity: isVisible[0] || isVisible[1] || isVisible[2] ? "1" : "0",
+          opacity: isVisibleOne || isVisibleTwo || isVisibleThree ? "1" : "0",
           transform:
-            isVisible[1] || isVisible[2]
+            isVisibleTwo || isVisibleThree
               ? "translate(-120%,-50%)"
               : "translate(-50%,-50%)",
         }}
       />
       <header
         style={{
-          opacity: `${isVisible[1] || isVisible[2] ? 1 : 0}`,
-          pointerEvents: isVisible[1] || isVisible[2] ? "auto" : "none",
+          opacity: `${isVisibleTwo || isVisibleThree ? 1 : 0}`,
+          pointerEvents: isVisibleTwo || isVisibleThree ? "auto" : "none",
         }}
       >
         <h3
           style={{
-            transform: isVisible[2]
+            transform: isVisibleThree
               ? "translate(6em, -2em)"
               : "translate(6em, 0)",
-            transitionDelay: !isVisible[2] ? "1s" : "0s",
+            transitionDelay: !isVisibleThree ? "1s" : "0s",
           }}
         >
           I graduated from <span>Rutgers</span> at New-Brunswick
@@ -58,16 +48,16 @@ export default function School() {
       <div
         className="section__text"
         style={{
-          opacity: `${isVisible[2] ? 1 : 0}`,
-          pointerEvents: isVisible[2] ? "auto" : "none",
+          opacity: `${isVisibleThree ? 1 : 0}`,
+          pointerEvents: isVisibleThree ? "auto" : "none",
         }}
       >
         <div
           style={{
-            transform: isVisible[2]
+            transform: isVisibleThree
               ? "translate(6em, 2em)"
               : "translate(6em, 0)",
-            transitionDelay: !isVisible[2] ? "1s" : "0s",
+            transitionDelay: !isVisibleThree ? "1s" : "0s",
           }}
         >
           <p>
@@ -78,9 +68,9 @@ export default function School() {
           </p>
         </div>
       </div>
-      <div className="block-100vh" ref={visible0}></div>
-      <div className="block-100vh" ref={visible2}></div>
-      <div className="block-100vh" ref={visible3}></div>
+      <div className="block-100vh" ref={ref1}></div>
+      <div className="block-100vh" ref={ref2}></div>
+      <div className="block-100vh" ref={ref3}></div>
     </section>
   );
 }

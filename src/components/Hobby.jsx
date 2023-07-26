@@ -1,16 +1,23 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./styles/hobby.css";
 import useObserver from "../hooks/useObserver";
-import thresholdOption from "../fn/thresholdOption";
 
+// set intersection observer scroll option
+function thresholdOption(amount) {
+  const threshold = [];
+  const steps = amount;
+  for (let i = 1; i <= steps; i++) {
+    threshold.push(i / steps);
+  }
+  return threshold;
+}
+
+// Child components
+// Each of them has ref and observer
 function ChildComp({ items }) {
   const compRef = useRef(null);
-  const option = {
-    rootMargin: "0px",
-    threshold: 0.5,
-  };
 
-  const isVisible = useObserver(compRef, option, true);
+  const isVisible = useObserver(compRef, { threshold: 0.5 }, true);
   return (
     <article>
       <div className="block-100vh" ref={compRef}></div>
@@ -37,26 +44,21 @@ function ChildComp({ items }) {
 }
 
 export default function Hobby() {
-  const titleRef = useRef(null),
-    pageRef = useRef(null),
-    childRef = useRef(null);
+  const ref1 = useRef(null),
+    ref2 = useRef(null);
 
-  const isVisible = [
-    useObserver(titleRef, { threshold: thresholdOption(100) }, false, true),
-    useObserver(childRef, { threshold: 0 }, true),
-    useObserver(pageRef, { threshold: 0 }, true),
+  // set if current scroll position reached the targeted position
+  const [isVisibleOne, isVisibleTwo] = [
+    useObserver(ref1, { threshold: thresholdOption(100) }, false, true),
+    useObserver(ref2, { threshold: 0 }, true),
   ];
 
-  useEffect(() => {
-    console.log(isVisible[1]);
-  }, [isVisible[1]]);
-
   return (
-    <section className="section hobby" ref={pageRef}>
+    <section className="section hobby">
       <header
         style={{
-          opacity: isVisible[1] ? "1" : "0",
-          transform: isVisible[1]
+          opacity: isVisibleTwo ? "1" : "0",
+          transform: isVisibleTwo
             ? "translate(-50%, -6rem)"
             : "translate(-50%, 0rem)",
         }}
@@ -64,7 +66,7 @@ export default function Hobby() {
         <div
           className="hobby__title-animation"
           style={{
-            transform: `translateX(clamp(0%, ${-isVisible[0] / 4}%, 100%)`,
+            transform: `translateX(clamp(0%, ${-isVisibleOne / 4}%, 100%)`,
           }}
         ></div>
         <h3>
@@ -72,8 +74,8 @@ export default function Hobby() {
         </h3>
       </header>
 
-      <div className="block-100vh" ref={titleRef}></div>
-      <div ref={childRef}>
+      <div className="block-100vh" ref={ref1}></div>
+      <div ref={ref2}>
         <div className="block-100vh"></div>
         <ChildComp items={["Desinging", "Painting"]} />
         <ChildComp items={["Editing videos", "Editing photos"]} />
