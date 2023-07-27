@@ -1,4 +1,5 @@
 .greeting {
+  font-size: 1rem;
   header {
     display: flex;
     flex-direction: column;
@@ -14,5 +15,61 @@
   .section__text {
     min-width: 14rem;
     transition: 0.3s opacity;
+  }
+  &__scroll {
+    transition: 0.3s opacity;
+    width: 1.5em;
+    height: 4em;
+    border: 1px solid rgb(211, 211, 211);
+    position: fixed;
+    bottom: 4em;
+    left: 50%;
+    border-radius: 1em;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    p {
+      position: absolute;
+      top: -1.5em;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: rgb(148, 148, 148);
+      animation: 1s ani-blink infinite alternate;
+    }
+
+    > div {
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      background-color: rgb(172, 172, 172);
+      left: 50%;
+      top: 0.5em;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      animation: 1.5s ani-scroll infinite;
+    }
+  }
+
+  @media (max-width: 700px) {
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes ani-blink {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ani-scroll {
+  0% {
+    top: 0.5em;
+  }
+  80% {
+    top: 2.5em;
+  }
+  100% {
+    top: 2.5em;
   }
 }

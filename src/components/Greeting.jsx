@@ -41,6 +41,15 @@ export default function Greeting() {
           Please, let me <span>introduce</span> myself.
         </p>
       </div>
+      <div
+        className="greeting__scroll"
+        style={{
+          opacity: isVisibleOne ? "1" : "0",
+        }}
+      >
+        <p>scroll down</p>
+        <div></div>
+      </div>
       <div className="block-100vh" ref={ref1}></div>
       <div className="block-100vh" ref={ref2}></div>
     </section>
